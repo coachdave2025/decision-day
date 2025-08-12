@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Day – Upside Coaching</title>
+  <meta name="description" content="A 3.5-hour coaching intensive to move the big decision from dread to done.">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-b from-white to-slate-50 text-slate-900">
+
+<!-- CONFIG: Edit these four values -->
+<script>
+  window.DD_CONFIG = {
+    PRICE: 849,
+    LOYALTY_DISCOUNT_PCT: 15,
+    CHECKOUT_URL: "https://buy.stripe.com/5kQbJ24gNfajadP3Udd7q04", // replace with your booking link
+    CONTACT_EMAIL: "dave@heycoachdave.com"
+  };
+</script>
+
+<section class="p-6">
+  <h1 class="text-4xl font-bold">Decision Day</h1>
+  <p class="mt-2">One focused session to move the big decision from dread to done.</p>
+
+  <!-- EDIT LINK BELOW: Book Decision Day -->
+  <a id="bookBtn" href="https://buy.stripe.com/5kQbJ24gNfajadP3Udd7q04" class="block mt-4 text-blue-600 underline">Book Decision Day →</a>
+
+  <p class="mt-2">$<span id="priceLabel">849</span> • loyalty rate −<span id="discPct">15</span>% for current & prior clients</p>
+
+  <!-- EDIT LINK BELOW: I’m ready to move -->
+  <a id="moveBtn" href="https://buy.stripe.com/5kQbJ24gNfajadP3Udd7q04" class="block mt-4 text-blue-600 underline">I’m ready to move →</a>
+
+  <!-- EDIT LINK BELOW: Questions? Email Dave (mailto) -->
+  <a id="emailLink" href="mailto:dave@heycoachdave.com" class="block mt-4 text-blue-600 underline">Questions? Email Dave</a>
+
+  <!-- EDIT LINK BELOW: Reserve a spot -->
+  <a id="reserveBtn" href="https://buy.stripe.com/5kQbJ24gNfajadP3Udd7q04" class="block mt-4 text-blue-600 underline">Reserve a spot</a>
+
+  <!-- EDIT LINK BELOW: Or email (mailto) -->
+  <a id="mailtoLink" href="mailto:hello@heycoachdave.com" class="block mt-4 text-blue-600 underline">Or email</a>
+
+  <!-- EDIT LINK BELOW: Ask Dave (mailto) -->
+  <a id="askBtn" href="mailto:hello@heycoachdave.com" class="block mt-4 text-blue-600 underline">Ask Dave</a>
+</section>
+
+<script>
+// Wire up the config
+(function () {
+  const { PRICE, LOYALTY_DISCOUNT_PCT, CHECKOUT_URL, CONTACT_EMAIL } = window.DD_CONFIG || {};
+  document.getElementById('priceLabel').textContent = PRICE.toLocaleString();
+  document.getElementById('discPct').textContent = LOYALTY_DISCOUNT_PCT;
+  ['bookBtn', 'moveBtn', 'reserveBtn'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.href = CHECKOUT_URL;
+  });
+  ['emailLink', 'mailtoLink', 'askBtn'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.href = `mailto:${CONTACT_EMAIL}`;
+  });
+})();
+</script>
+
+</body>
+</html>
